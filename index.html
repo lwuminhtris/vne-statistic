@@ -1,0 +1,69 @@
+<html
+  style = "background-color:#24292e;"
+>
+  <header>
+    <title>VnExpress World Statistic</title>
+    <!--<script src = 'index.js'></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="index.js"></script>
+    <!--<script src="data.js"></script>-->
+  </header>
+  <body>
+    <!-- text -->
+    <div
+      style = "position: flex; margin-top: 50px;"
+    >
+      <h2 
+        style="color: white; text-align: center;"
+      > 
+        TẦN SUẤT CÁC QUỐC GIA XUẤT HIỆN TRÊN VNEXPRESS
+      </h2>
+      <h3
+        style="color: white; text-align: center"
+      >
+        Vào lúc <span id = "time"/>
+      </h3>
+    </div>
+
+    <!-- chart -->
+    <div
+      style = "width: 70%; height: auto; margin: auto; margin-top: 100px;"
+    >
+      <canvas id = "myChart" 
+        style="border: 1px; background-color: transparent;">
+      </canvas>
+    </div>
+    <!--       -->
+    <script>
+      // === include 'setup' then 'config' above ===
+      console.log('LLL')
+      var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+
+    </script>
+    <script>
+      let date = new Date()
+      document.getElementById('time').innerHTML = date
+      function usingAxios() {
+        axios.get('http://localhost:5000/')
+        .then(Response => {
+          // console.log(Response.data)
+          for(let i = 0; i < Response.data.length; i++) {
+            console.log(Response.data[i].nation)
+            myChart.data.labels[i] = Response.data[i].nation
+            myChart.data.datasets[0].data[i] = Response.data[i].number
+          }
+          myChart.update()
+        }) 
+      }
+
+      usingAxios()
+    </script>
+  </body>
+  <footer>
+
+  </footer>
+</html>
