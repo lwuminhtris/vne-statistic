@@ -15,6 +15,6 @@ $ python -m flask run
 ```
 - Nếu thấy thông báo như sau thì có nghĩa server đã chạy thành công
 ![alt](https://cdn.discordapp.com/attachments/835921395292700776/837955371590221874/unknown.png)
-- Server đưa dữ liệu đã crawl từ VnExpress, chỉnh sửa và tổng hợp lại lên đường dẫn localhost:5000 dưới dạng JSON
+- Server đưa tất cả dữ liệu cần thiết để thống kê lên localhost:5000 dưới dạng JSON
 ![alt](https://cdn.discordapp.com/attachments/835921395292700776/837957733805981746/unknown.png)
 - Tiếp theo mở file index.html nằm ở thư mục gốc để xem kết quả là xong rồi đó 🎉
